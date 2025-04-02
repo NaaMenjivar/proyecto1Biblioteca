@@ -129,7 +129,9 @@
   <ItemGroup>
     <ClCompile Include="Archivos.cpp" />
     <ClCompile Include="Articulo.cpp" />
+    <ClCompile Include="Biblioteca.cpp" />
     <ClCompile Include="GestorPrestamos.cpp" />
+    <ClCompile Include="Interfaz.cpp" />
     <ClCompile Include="Libro.cpp" />
     <ClCompile Include="ListaMateriales.cpp" />
     <ClCompile Include="ListaUsuarios.cpp" />
@@ -145,7 +147,9 @@
   <ItemGroup>
     <ClInclude Include="Archivos.h" />
     <ClInclude Include="Articulo.h" />
+    <ClInclude Include="Biblioteca.h" />
     <ClInclude Include="GestorPrestamos.h" />
+    <ClInclude Include="Interfaz.h" />
     <ClInclude Include="Libro.h" />
     <ClInclude Include="ListaMateriales.h" />
     <ClInclude Include="ListaUsuarios.h" />
