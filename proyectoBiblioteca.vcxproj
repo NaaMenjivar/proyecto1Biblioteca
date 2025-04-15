@@ -127,7 +127,39 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="proyectoBiblioteca.cpp" />
+    <ClCompile Include="Archivos.cpp" />
+    <ClCompile Include="Articulo.cpp" />
+    <ClCompile Include="Biblioteca.cpp" />
+    <ClCompile Include="GestorPrestamos.cpp" />
+    <ClCompile Include="Interfaz.cpp" />
+    <ClCompile Include="Libro.cpp" />
+    <ClCompile Include="ListaMateriales.cpp" />
+    <ClCompile Include="ListaUsuarios.cpp" />
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="Material.cpp" />
+    <ClCompile Include="MaterialDigital.cpp" />
+    <ClCompile Include="Prestamo.cpp" />
+    <ClCompile Include="Reportes.cpp" />
+    <ClCompile Include="Revista.cpp" />
+    <ClCompile Include="Usuario.cpp" />
+    <ClCompile Include="Video.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Archivos.h" />
+    <ClInclude Include="Articulo.h" />
+    <ClInclude Include="Biblioteca.h" />
+    <ClInclude Include="GestorPrestamos.h" />
+    <ClInclude Include="Interfaz.h" />
+    <ClInclude Include="Libro.h" />
+    <ClInclude Include="ListaMateriales.h" />
+    <ClInclude Include="ListaUsuarios.h" />
+    <ClInclude Include="Material.h" />
+    <ClInclude Include="MaterialDigital.h" />
+    <ClInclude Include="Prestamo.h" />
+    <ClInclude Include="Reportes.h" />
+    <ClInclude Include="Revista.h" />
+    <ClInclude Include="Usuario.h" />
+    <ClInclude Include="Video.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
