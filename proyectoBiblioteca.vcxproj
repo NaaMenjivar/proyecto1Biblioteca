@@ -130,6 +130,7 @@
     <ClCompile Include="Archivos.cpp" />
     <ClCompile Include="Articulo.cpp" />
     <ClCompile Include="Biblioteca.cpp" />
+    <ClCompile Include="excepciones.cpp" />
     <ClCompile Include="GestorPrestamos.cpp" />
     <ClCompile Include="Interfaz.cpp" />
     <ClCompile Include="Libro.cpp" />
@@ -148,6 +149,7 @@
     <ClInclude Include="Archivos.h" />
     <ClInclude Include="Articulo.h" />
     <ClInclude Include="Biblioteca.h" />
+    <ClInclude Include="excepciones.h" />
     <ClInclude Include="GestorPrestamos.h" />
     <ClInclude Include="Interfaz.h" />
     <ClInclude Include="Libro.h" />

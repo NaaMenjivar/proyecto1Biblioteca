@@ -27,7 +27,6 @@ protected:
 	string palabrasClave;
 	string tipoMaterial;
 	string estado;
-	//int tiempoPrestado;
 public:
 	Material(int c, int ct, string t, string a, string pC, string ty, string s);
 	virtual ~Material();
