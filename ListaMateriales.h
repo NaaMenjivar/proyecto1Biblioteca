@@ -13,7 +13,50 @@
 //                                                                    | 
 // -------------------------------------------------------------------+
 #pragma once
-class ListaMateriales
-{
+#include "Material.h"
+
+class NodoMaterial {
+private:
+	Material* dato;
+	NodoMaterial* sig;
+public:
+	NodoMaterial(Material* d, NodoMaterial* s);
+	virtual ~NodoMaterial();
+
+	//Acceso
+	Material* getDato();
+	NodoMaterial* getSiguiente();
+
+	//Setteo
+	void setMaterial(Material* d);
+	void setSiguiente(NodoMaterial* s);
+
+	//toString
+	string toString() const;
+};
+
+class ListaMateriales {
+private:
+	NodoMaterial* primero;
+	NodoMaterial* actual;
+public:
+	ListaMateriales();
+	virtual ~ListaMateriales();
+
+	//Agregar materiales
+	bool agregarMateriales(Material* nuevoMaterial);
+
+	//Buscar materiales
+	bool buscarMaterial(int numCatalogo);
+
+	//Eliminar material
+	void eliminarMaterial(int numCatalogo);
+
+	//Vaciar lista
+	void vaciarLista();
+
+	//toString
+	string toString();
+
 };
 

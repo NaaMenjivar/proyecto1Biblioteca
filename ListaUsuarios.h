@@ -13,7 +13,51 @@
 //                                                                    | 
 // -------------------------------------------------------------------+
 #pragma once
-class ListaUsuarios
-{
+#include "Usuario.h"
+
+class NodoUsuario {
+private:
+	Usuario* dato;
+	NodoUsuario* sig;
+public:
+	NodoUsuario(Usuario* d, NodoUsuario* s);
+	virtual ~NodoUsuario();
+
+	//Acceso
+	Usuario* getDato();
+	NodoUsuario* getSiguiente();
+
+	//Setteo
+	void setDato(Usuario* d);
+	void setSiguiente(NodoUsuario* s);
+
+	//toString
+	string toString() const;
 };
+
+class ListaUsuarios {
+private:
+	NodoUsuario* primero;
+	NodoUsuario* actual;
+public:
+	ListaUsuarios();
+	virtual ~ListaUsuarios();
+
+	//Agregar usuarios
+	bool agregarUsuarios(Usuario* nuevoUsuario);
+
+	//Buscar usuarios
+	bool buscarUsuarios(string id);
+
+	//Eliminar material
+	void eliminarUsuario(string id);
+
+	//Vaciar lista
+	void vaciarLista();
+
+	//toString
+	string toString();
+
+};
+
 

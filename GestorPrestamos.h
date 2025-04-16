@@ -13,7 +13,49 @@
 //                                                                    | 
 // -------------------------------------------------------------------+
 #pragma once
-class GestorPrestamos
-{
+#include "Prestamo.h"
+
+class NodoPrestamo {
+private:
+	Prestamo* dato;
+	NodoPrestamo* sig;
+public:
+	NodoPrestamo(Prestamo* d, NodoPrestamo* s);
+	virtual ~NodoPrestamo();
+
+	//Acceso
+	Prestamo* getDato();
+	NodoPrestamo* getSiguiente();
+
+	//Setteo
+	void setDato(Prestamo* d);
+	void setSiguiente(NodoPrestamo* s);
+
+	//toString
+	string toString() const;
+};
+
+class GestorPrestamos {
+private:
+	NodoPrestamo* primero;
+	NodoPrestamo* actual;
+public:
+    GestorPrestamos();
+    virtual ~GestorPrestamos();
+
+	//Agregar prestamo
+    bool agregarPrestamo(Prestamo* nuevoPrestamo);
+
+	//Buscar prestamo
+    bool buscarPrestamo(int numeroPrestamo);
+
+	//Eliminar prestamo
+    void eliminarPrestamo(int numeroPrestamo);
+
+	//Vaciar lista
+    void vaciarLista();
+
+	//toString
+    string toString();
 };
 
