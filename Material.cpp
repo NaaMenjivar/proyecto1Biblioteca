@@ -30,7 +30,6 @@ string Material::toString() const {
     s << "Titulo: " << titulo << endl;
     s << "Autor(es): " << autor << endl;
     s << "Palabras clave: " << palabrasClave << endl;
-    s << "Tipo de material: " << tipoMaterial << endl;
     s << "Estado del material: " << estado << endl;
 
     return s.str();
