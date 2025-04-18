@@ -19,7 +19,7 @@ class Libro : public Material {
 private:
 	string ubicacionFisica;
 public:
-	Libro(int c, int ct, string t, string a, string pC, string ty, string s, string uF);
+	Libro(char tm, int c, int ct, string t, string a, string pC, string s, string uF);
 	virtual ~Libro();
 
 	//Acceso

@@ -20,7 +20,7 @@ private:
 	string duracion;
 	string formato;
 public:
-	Video(int c, int ct, string t, string a, string pC, string ty, string s, string d, string f);
+	Video(char tm, int c, int ct, string t, string a, string pC, string s, string d, string f);
 	virtual ~Video();
 
 	//Acceso

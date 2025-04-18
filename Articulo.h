@@ -20,7 +20,7 @@ private:
 	string revistaPublicacion;
 	string fechaPublicacion;
 public:
-	Articulo(int c, int ct, string t, string a, string pC, string ty, string s, string rP, string fP);
+	Articulo(char tm, int c, int ct, string t, string a, string pC, string s, string rP, string fP);
 	virtual ~Articulo();
 
 	//Acceso

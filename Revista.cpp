@@ -1,7 +1,7 @@
 #include "Revista.h"
 
-Revista::Revista(int c, int ct, string t, string a, string pC, string ty, string s, int nm, int vl, string uF)
-    : Material(c, ct, t, a, pC, ty, s), numero(nm), volumen(vl), ubicacionFisica(uF) {}
+Revista::Revista(char tm, int c, int ct, string t, string a, string pC, string s, int nm, int vl, string uF)
+    : Material(tm, c, ct, t, a, pC, s), numero(nm), volumen(vl), ubicacionFisica(uF) {} 
 Revista::~Revista() {}
 
 //Acceso

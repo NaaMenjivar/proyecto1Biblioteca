@@ -1,7 +1,7 @@
 #include "Articulo.h"
 
-Articulo::Articulo(int c, int ct, string t, string a, string pC, string ty, string s, string rP, string fP) 
-    : Material(c, ct, t, a, pC, ty, s), revistaPublicacion(rP), fechaPublicacion(fP) {}
+Articulo::Articulo(char tm, int c, int ct, string t, string a, string pC, string s, string rP, string fP)
+    : Material(tm, c, ct, t, a, pC, s), revistaPublicacion(rP), fechaPublicacion(fP) {} 
 Articulo::~Articulo() {}
 
 //Acceso

@@ -13,7 +13,31 @@
 //                                                                    | 
 // -------------------------------------------------------------------+
 #pragma once
+#include "ListaMateriales.h"
+#include "ListaUsuarios.h"
+#include "GestorPrestamos.h"
 class Biblioteca
 {
+private:
+	ListaMateriales* materiales;
+	ListaUsuarios* usuarios;
+	GestorPrestamos* prestamos;
+public:
+	Biblioteca();
+	virtual ~Biblioteca();
+
+	// Ingresos...
+	bool ingresarMateriales(Material&);
+	bool ingresarUsuarios(Usuario&);
+	bool ingresarPrestamos(Prestamo&);
+
+
+	// Busquedas...
+	Material* getMaterial(char tipMat);
+	Usuario* getUsuarios(string idUs);
+	Prestamo* getPrestamo(int numPe);
+
+	// Se llaman a los repotes...
+	// Guardar y car
 };
 

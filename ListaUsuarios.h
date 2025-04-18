@@ -44,10 +44,11 @@ public:
 	virtual ~ListaUsuarios();
 
 	//Agregar usuarios
-	bool agregarUsuarios(Usuario* nuevoUsuario);
+	bool agregarUsuarios(Usuario& nuevoUsuario);
 
-	//Buscar usuarios
+	//Buscar y obtener usuarios 
 	bool buscarUsuarios(string id);
+	Usuario* obtenerUsuario(string id);
 
 	//Eliminar material
 	void eliminarUsuario(string id);

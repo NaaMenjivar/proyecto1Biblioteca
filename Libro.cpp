@@ -1,7 +1,7 @@
 #include "Libro.h"
 
-Libro::Libro(int c, int ct, string t, string a, string pC, string ty, string s, string uF) 
-	: Material(c, ct, t, a, pC, ty, s), ubicacionFisica(uF) {}
+Libro::Libro(char tm, int c, int ct, string t, string a, string pC, string s, string uF)
+	: Material(tm, c, ct, t, a, pC, s), ubicacionFisica(uF) {} 
 Libro::~Libro() {}
 
 //Acceso

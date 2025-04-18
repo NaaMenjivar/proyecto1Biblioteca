@@ -1,3 +1,4 @@
+#pragma once
 // -------------------------------------------------------------------+ 
 //                                                                    | 
 // (c) 2025                                                           | 
@@ -12,51 +13,21 @@
 // versión 1.0.0 2025-04-01                                           | 
 //                                                                    | 
 // -------------------------------------------------------------------+
-#pragma once
-#include "Prestamo.h"
-
-class NodoPrestamo {
+#include "Interfaz.h"
+class Controladora
+{
 private:
-	Prestamo* dato;
-	NodoPrestamo* sig;
+	Biblioteca* biblioteca;
 public:
-	NodoPrestamo(Prestamo* d, NodoPrestamo* s);
-	virtual ~NodoPrestamo();
+	Controladora();
+	~Controladora();
 
-	//Acceso
-	Prestamo* getDato();
-	NodoPrestamo* getSiguiente();
+	void control0();
+	int menuPrincipal();
 
-	//Setteo
-	void setDato(Prestamo* d);
-	void setSiguiente(NodoPrestamo* s);
-
-	//toString
-	string toString() const;
-};
-
-class GestorPrestamos {
-private:
-	NodoPrestamo* primero;
-	NodoPrestamo* actual;
-public:
-    GestorPrestamos();
-    virtual ~GestorPrestamos();
-
-	//Agregar prestamo
-    bool agregarPrestamo(Prestamo& nuevoPrestamo);
-
-	//Buscar y obtener prestamo
-    bool buscarPrestamo(int numeroPrestamo);
-	Prestamo* obtenerPrestamo(int numPrestamo);
-
-	//Eliminar prestamo
-    void eliminarPrestamo(int numeroPrestamo);
-
-	//Vaciar lista
-    void vaciarLista();
-
-	//toString
-    string toString();
+	void controlMenuIngresos();
+	int menuIngresos();
+	void ingresarMaterial();
+	void ingresarUsuario();
 };
 

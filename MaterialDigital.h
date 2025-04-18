@@ -21,7 +21,7 @@ private:
 	string tipo;
 	bool accesoEnLinea;
 public:
-	MaterialDigital(int c, int ct, string t, string a, string pC, string ty, string s, string f, string typ, bool acEL);
+	MaterialDigital(char tm, int c, int ct, string t, string a, string pC, string s, string f, string typ, bool acEL);
 	virtual ~MaterialDigital();
 
 	//Acceso

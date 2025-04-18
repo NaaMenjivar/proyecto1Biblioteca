@@ -21,26 +21,26 @@ string NodoMaterial::toString() const {
 ListaMateriales::ListaMateriales() : primero(nullptr), actual(nullptr) {}
 ListaMateriales::~ListaMateriales() {
     if (primero != nullptr) {
-        vaciarLista();
+        vaciarLista();//Lamada al metodo vaciar lista
     }
 }
 //Agregar materiales
-bool ListaMateriales::agregarMateriales(Material* nuevoMaterial) {
-    if (buscarMaterial(nuevoMaterial->getNumCatalogo())) {
+bool ListaMateriales::agregarMateriales(Material& nuevoMaterial) {
+    if (buscarxTipMaterial(nuevoMaterial.getTipoMaterial())) {
         return false;
     }
-    primero = new NodoMaterial(nuevoMaterial, primero);
-        return true;
+    primero = new NodoMaterial(&nuevoMaterial, primero);
+    return true;
 }
 
 //Buscar materiales
-bool ListaMateriales::buscarMaterial(int numCatalogo) {
+bool ListaMateriales::buscarxTipMaterial(char tipMaterial) {
     if (primero == nullptr) {
         return false;
     }
     actual = primero;
     while (actual != nullptr) {
-        if (actual->getDato()->getNumCatalogo() == numCatalogo) {
+        if (actual->getDato()->getTipoMaterial() == tipMaterial) {
             return true;
         }
         actual = actual->getSiguiente();
@@ -48,10 +48,38 @@ bool ListaMateriales::buscarMaterial(int numCatalogo) {
     return false;
 }
 
+bool ListaMateriales::buscarxNumCatalago(int numCatalago)
+{
+    if (primero == nullptr) {
+        return false;
+    }
+    actual = primero;
+    while (actual != nullptr) {
+        if (actual->getDato()->getNumCatalogo() == numCatalago) {
+            return true;
+        }
+        actual = actual->getSiguiente();
+    }
+    return false;
+    return false;
+}
+
+Material* ListaMateriales::obtenerMaterial(char tipMaterial)
+{
+    actual = primero;
+    while (actual != nullptr) {
+        if (actual->getDato()->getTipoMaterial() == tipMaterial) {
+            return actual->getDato();
+        }
+        actual = actual->getSiguiente();
+    }
+    return nullptr;
+}
+
 //Eliminar material
 void ListaMateriales::eliminarMaterial(int numCatalogo) {
     actual = primero;
-    if (buscarMaterial(numCatalogo)) {
+    if (buscarxNumCatalago(numCatalogo)) {
         if (actual->getDato()->getNumCatalogo() == numCatalogo) {
             primero = primero->getSiguiente();
             delete actual;
@@ -68,12 +96,14 @@ void ListaMateriales::eliminarMaterial(int numCatalogo) {
 }
 
 //Vaciar lista
-void ListaMateriales::vaciarLista() {
+void ListaMateriales::vaciarLista() {//Metodo encargado de borrar elementos, nodos y la lista...
     while (primero != nullptr) {
         actual = primero;
         primero = primero->getSiguiente();
+        delete actual->getDato();
         delete actual;
     }
+    cout << "materiales eliminados..." << endl;
 }
 
 //toString

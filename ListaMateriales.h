@@ -44,10 +44,12 @@ public:
 	virtual ~ListaMateriales();
 
 	//Agregar materiales
-	bool agregarMateriales(Material* nuevoMaterial);
+	bool agregarMateriales(Material& nuevoMaterial);
 
-	//Buscar materiales
-	bool buscarMaterial(int numCatalogo);
+	//Buscar y obtener materiales
+	bool buscarxTipMaterial(char tipMaterial);
+	bool buscarxNumCatalago(int numCatalago);
+	Material* obtenerMaterial(char tipMaterial);
 
 	//Eliminar material
 	void eliminarMaterial(int numCatalogo);

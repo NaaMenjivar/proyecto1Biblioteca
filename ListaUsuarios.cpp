@@ -2,7 +2,7 @@
 
 /*--------------------NODO--------------------*/
 NodoUsuario::NodoUsuario(Usuario* d, NodoUsuario* s) : dato(d), sig(s) {}
-NodoUsuario::~NodoUsuario() { delete dato; }
+NodoUsuario::~NodoUsuario() {}
 
 //Acceso
 Usuario* NodoUsuario::getDato() { return dato; }
@@ -21,16 +21,16 @@ string NodoUsuario::toString() const {
 ListaUsuarios::ListaUsuarios() : primero(nullptr), actual(nullptr) {}
 ListaUsuarios::~ListaUsuarios() {
     if (primero != nullptr) {
-        vaciarLista();
+        vaciarLista();//Lamada al metodo vaciar lista
     }
 }
 
 //Agregar usuarios
-bool ListaUsuarios::agregarUsuarios(Usuario* nuevoUsuario) {
-    if (buscarUsuarios(nuevoUsuario->getId())) {
+bool ListaUsuarios::agregarUsuarios(Usuario& nuevoUsuario) {
+    if (buscarUsuarios(nuevoUsuario.getId())) {
         return false;
     }
-    primero = new NodoUsuario(nuevoUsuario, primero);
+    primero = new NodoUsuario(&nuevoUsuario, primero);
     return true;
 }
 
@@ -47,6 +47,18 @@ bool ListaUsuarios::buscarUsuarios(string id) {
         actual = actual->getSiguiente();
     }
     return false;
+}
+
+Usuario* ListaUsuarios::obtenerUsuario(string id)
+{
+    actual = primero;
+    while (actual != nullptr) {
+        if (actual->getDato()->getId() == id) {
+            return actual->getDato();
+        }
+        actual = actual->getSiguiente();
+    }
+    return nullptr; 
 }
 
 //Eliminar usuario
@@ -69,12 +81,14 @@ void ListaUsuarios::eliminarUsuario(string id) {
 }
 
 //Vaciar lista
-void ListaUsuarios::vaciarLista() {
+void ListaUsuarios::vaciarLista() {//Metodo encargado de borrar elementos y nodos...
     while (primero != nullptr) {
         actual = primero;
         primero = primero->getSiguiente();
+        delete actual->getDato();
         delete actual;
     }
+    cout << "usarios eliminados..." << endl;
 }
 
 //toString

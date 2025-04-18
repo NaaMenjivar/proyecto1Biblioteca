@@ -21,7 +21,7 @@ private:
 	int volumen;
 	string ubicacionFisica;
 public:
-	Revista(int c, int ct, string t, string a, string pC, string ty, string s, int nm, int vl, string uF);
+	Revista(char tm, int c, int ct, string t, string a, string pC, string s, int nm, int vl, string uF);
 	virtual ~Revista();
 
 	//Acceso

@@ -1,8 +1,8 @@
 #include "MaterialDigital.h"
 
-MaterialDigital::MaterialDigital(int c, int ct, string t, string a, string pC, string ty, string s, string f, string typ, bool acEL) 
-    : Material(c, ct, t, a, pC, ty, s), formato(f), tipo(typ), accesoEnLinea(acEL) {}
-MaterialDigital::~MaterialDigital() {}
+MaterialDigital::MaterialDigital(char tm, int c, int ct, string t, string a, string pC, string s, string f, string typ, bool acEL)
+    : Material(tm, c, ct, t, a, pC, s), formato(f), tipo(typ), accesoEnLinea(acEL) {}
+MaterialDigital::~MaterialDigital() {} 
 
 //Acceso
 string MaterialDigital::getFormato() { return formato; }

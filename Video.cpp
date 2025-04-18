@@ -1,7 +1,7 @@
 #include "Video.h"
 
-Video::Video(int c, int ct, string t, string a, string pC, string ty, string s, string d, string f) 
-    : Material(c, ct, t, a, pC, ty, s), duracion(d), formato(f) {}
+Video::Video(char tm, int c, int ct, string t, string a, string pC, string s, string d, string f)
+    : Material(tm, c, ct, t, a, pC, s), duracion(d), formato(f) {} 
 Video::~Video() {}
 
 //Acceso

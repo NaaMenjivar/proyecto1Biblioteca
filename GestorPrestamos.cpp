@@ -2,7 +2,7 @@
 
 /*--------------------NODO--------------------*/
 NodoPrestamo::NodoPrestamo(Prestamo* d, NodoPrestamo* s) : dato(d), sig(s) {}
-NodoPrestamo::~NodoPrestamo() { delete dato; }
+NodoPrestamo::~NodoPrestamo() {}
 
 // Acceso
 Prestamo* NodoPrestamo::getDato() { return dato; }
@@ -26,11 +26,11 @@ GestorPrestamos::~GestorPrestamos() {
 }
 
 // Agregar préstamo
-bool GestorPrestamos::agregarPrestamo(Prestamo* nuevoPrestamo) {
-    if (buscarPrestamo(nuevoPrestamo->getNumeroPrestamo())) {
+bool GestorPrestamos::agregarPrestamo(Prestamo& nuevoPrestamo) {
+    if (buscarPrestamo(nuevoPrestamo.getNumeroPrestamo())) {
         return false;
     }
-    primero = new NodoPrestamo(nuevoPrestamo, primero);
+    primero = new NodoPrestamo(&nuevoPrestamo, primero);
         return true;
 }
 
@@ -44,6 +44,19 @@ bool GestorPrestamos::buscarPrestamo(int numeroPrestamo) {
         actual = actual->getSiguiente();
     }
     return false;
+}
+
+//Obtener Prestamo
+Prestamo* GestorPrestamos::obtenerPrestamo(int numPrestamo)
+{
+    actual = primero;
+    while (actual != nullptr) {
+        if (actual->getDato()->getNumeroPrestamo() == numPrestamo) {
+            return actual->getDato();
+        }
+        actual = actual->getSiguiente();
+    }
+    return nullptr;
 }
 
 // Eliminar préstamo
@@ -70,6 +83,7 @@ void GestorPrestamos::vaciarLista() {
     while (primero != nullptr) {
         actual = primero;
         primero = primero->getSiguiente();
+        delete actual->getDato();
         delete actual;
     }
 }
