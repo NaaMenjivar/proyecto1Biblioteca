@@ -49,7 +49,8 @@ public:
 	//Buscar y obtener materiales
 	bool buscarxTipMaterial(char tipMaterial);
 	bool buscarxNumCatalago(int numCatalago);
-	Material* obtenerMaterial(char tipMaterial);
+	Material* obtenerMaterial(int numCatalago);
+	NodoMaterial* getPrimero();
 
 	//Eliminar material
 	void eliminarMaterial(int numCatalogo);
@@ -59,6 +60,6 @@ public:
 
 	//toString
 	string toString();
-
+	string toStringxMaterial(char tip);
 };
 

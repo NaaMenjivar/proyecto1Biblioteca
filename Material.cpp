@@ -21,17 +21,3 @@ void Material::setAutor(string a) { autor = a; }
 void Material::setPalabrasClave(string pC) { palabrasClave = pC; }
 void Material::setTipoMaterial(char tm) { tipoMaterial = tm; }
 void Material::setEstado(string s) { estado = s; }
-
-//toString
-string Material::toString() const {
-    stringstream s;
-    s << "Tipo de material: " << tipoMaterial << endl; 
-    s << "Numero de clasificacion: " << numeroClasificacion << endl;
-    s << "Numero de catalogo: " << numeroCatalogo << endl;
-    s << "Titulo: " << titulo << endl;
-    s << "Autor(es): " << autor << endl;
-    s << "Palabras clave: " << palabrasClave << endl;
-    s << "Estado del material: " << estado << endl;
-
-    return s.str();
-}

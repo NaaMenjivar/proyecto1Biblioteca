@@ -51,7 +51,7 @@ public:
 	Prestamo* obtenerPrestamo(int numPrestamo);
 
 	//Eliminar prestamo
-    void eliminarPrestamo(int numeroPrestamo);
+    bool eliminarPrestamo(int numeroPrestamo);
 
 	//Vaciar lista
     void vaciarLista();

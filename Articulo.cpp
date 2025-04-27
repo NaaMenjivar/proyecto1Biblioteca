@@ -1,8 +1,10 @@
 #include "Articulo.h"
+#include "Archivos.h"
 
 Articulo::Articulo(char tm, int c, int ct, string t, string a, string pC, string s, string rP, string fP)
-    : Material(tm, c, ct, t, a, pC, s), revistaPublicacion(rP), fechaPublicacion(fP) {} 
-Articulo::~Articulo() {}
+    : Material(tm, c, ct, t, a, pC, s), revistaPublicacion(rP), fechaPublicacion(fP) {
+	this->persistencia = new PersistenciaArticulos();    
+} 
 
 //Acceso
 string Articulo::getRevistaPublicacion() { return revistaPublicacion; }

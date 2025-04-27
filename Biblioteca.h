@@ -37,7 +37,25 @@ public:
 	Usuario* getUsuarios(string idUs);
 	Prestamo* getPrestamo(int numPe);
 
-	// Se llaman a los repotes...
-	// Guardar y car
+	// Reportes... 
+	string reporteInvtMariales();
+	string reporteMatEspecifico(char);
+	string reporteUsuarios();
+	string reportePrestamos();
+	string reportePrestamosxMat(char);
+	string reportePrestamosxUsr(string);
+	
+	//Eliminaciones...
+	void eliminacionMaterial(int numCat);
+	void eliminacionUsuario(string idUsr);
+	bool devolucionMaterial(int numPre);
+	
+	// Guardar y cargar...
+	void guardarMateriales();
+	void cargarMateriales();
+	void guardarUsuarios();
+	void cargarUsuarios();
+	void guardarPrestamos();
+	void cargarPrestamos();
 };
 

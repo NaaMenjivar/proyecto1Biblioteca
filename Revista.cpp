@@ -1,8 +1,10 @@
 #include "Revista.h"
+#include "Archivos.h"
 
 Revista::Revista(char tm, int c, int ct, string t, string a, string pC, string s, int nm, int vl, string uF)
-    : Material(tm, c, ct, t, a, pC, s), numero(nm), volumen(vl), ubicacionFisica(uF) {} 
-Revista::~Revista() {}
+    : Material(tm, c, ct, t, a, pC, s), numero(nm), volumen(vl), ubicacionFisica(uF) {
+	this->persistencia = new PersistenciaResvistas();
+} 
 
 //Acceso
 int Revista::getNumero() { return numero; }

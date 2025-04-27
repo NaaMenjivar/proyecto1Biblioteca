@@ -13,6 +13,7 @@ Controladora::~Controladora()
 
 void Controladora::control0()//Todos los menus de interfaz
 {
+    cargarArchivos();
     int opcion;
     do {
         opcion = menuPrincipal();
@@ -20,11 +21,17 @@ void Controladora::control0()//Todos los menus de interfaz
         {
         case 1: { controlMenuIngresos(); }break;
 
-        case 2: {}break;
+        case 2: { controlMenuPrestamosyDevoluciones(); }break;
+
+        case 3: { controlMenuReportes(); }break;
+
+        case 4: { controlMenuGuardar(); }break;
+
+        case 5: {}break;
 
         default: {}break;
         }
-    } while (opcion != 2);
+    } while (opcion != 5);
 }
 
 int Controladora::menuPrincipal()
@@ -43,15 +50,15 @@ void Controladora::controlMenuIngresos()
 
         case 2: { ingresarUsuario(); }break;
 
-        //case 3: { ingresarPeriodo(); }break;
+        case 3: { modificarMaterial(); }break;
 
-        //case 4: { ingresarGrupo(); }break;
+        case 4: { modificarUsuario(); }break;
 
-        case 3: {}break;
+        case 5: {}break;
 
         default: {}break;
         }
-    } while (opcion != 3);
+    } while (opcion != 5);
 }
 
 int Controladora::menuIngresos()
@@ -85,4 +92,137 @@ void Controladora::ingresarUsuario()
             delete u;
         }
     }
+}
+
+void Controladora::modificarMaterial()
+{
+    if (Interfaz::modificarMaterial(*biblioteca)) {
+        Interfaz::mensajeIngresoExitoso(); 
+    }
+    Interfaz::mensajeErrorIngreso(); 
+}
+
+void Controladora::modificarUsuario()
+{
+    if (Interfaz::modicarUsuario(*biblioteca)) { 
+        Interfaz::mensajeIngresoExitoso();
+    }
+    Interfaz::mensajeErrorIngreso();
+}
+
+void Controladora::controlMenuPrestamosyDevoluciones()
+{
+    int opcion;
+    do {
+        opcion = menuPyD();
+        switch (opcion)
+        {
+        case 1: { ingresarPrestamo(); }break;
+
+        case 2: { devolucionPres(); }break;
+
+        case 3: {}break;
+
+        default: {}break;
+        }
+    } while (opcion != 3);
+}
+
+int Controladora::menuPyD()
+{
+    return Interfaz::menuPrestamos();
+}
+
+void Controladora::ingresarPrestamo()
+{
+    Prestamo* p = Interfaz::crearPrestamo(*biblioteca);
+    if (p) { 
+        if (biblioteca->ingresarPrestamos(*p)) {
+            Interfaz::mensajeIngresoExitoso(); 
+        }
+        else {
+            Interfaz::mensajeErrorIngreso(); 
+            delete p; 
+        }
+    }
+}
+
+void Controladora::devolucionPres()
+{
+    if (Interfaz::devolucionPrestamo(*biblioteca)) {
+        Interfaz::msjDevolucionExitoso();
+    }
+    else {
+        Interfaz::msjErrorDevolucion();
+    }
+}
+
+void Controladora::controlMenuReportes()
+{
+    int opcion;
+    do {
+        opcion = menuReportes();
+        switch (opcion)
+        {
+        case 1: { repMateriales(); }break;
+
+        case 2: { repUsuarios(); }break; 
+
+        case 3: { repPrestamos(); }break;
+
+        case 4: { repPrestamosporMat(); }break;
+
+        case 5: { repPrestamosporUsr(); }break;
+
+        case 6: {}break;
+
+        default: {}break;
+        }
+    } while (opcion != 6);
+}
+
+int Controladora::menuReportes()
+{
+    return Interfaz::menuReportes(); 
+}
+
+void Controladora::repMateriales()
+{
+    Interfaz::reporteInvMaterial(*biblioteca);
+}
+
+void Controladora::repUsuarios()
+{
+    Interfaz::reportdeUsuarios(*biblioteca);
+}
+
+void Controladora::repPrestamos()
+{
+    Interfaz::reportedePrestamos(*biblioteca);
+}
+
+void Controladora::repPrestamosporMat()
+{
+    Interfaz::reportedePrestamosxMat(*biblioteca);
+}
+
+void Controladora::repPrestamosporUsr()
+{
+    Interfaz::reportedePrestamosxUsr(*biblioteca);
+}
+
+void Controladora::controlMenuGuardar()
+{
+    guardarArchivos();
+    Interfaz::msjGuardado();
+}
+
+void Controladora::guardarArchivos()
+{
+    biblioteca->guardarMateriales();
+}
+
+void Controladora::cargarArchivos()
+{
+    biblioteca->cargarMateriales();
 }

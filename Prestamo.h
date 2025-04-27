@@ -13,33 +13,32 @@
 //                                                                    | 
 // -------------------------------------------------------------------+
 #pragma once
-#include <iostream>
-#include <sstream>
-#include <string>
-using namespace std; 
+#include "Includes.h"
+#include "Usuario.h"
+#include "Material.h"
 
 class Prestamo {
 private:
 	int numeroPrestamo;
-	string idUsuario;
-	int numeroCatalogoMaterial;
+	Usuario* usuario;
+	Material* material;
 	string fechaInicio;
 	string fechaFin;
 public:
-	Prestamo(int n, string i, int nCm, string fI, string fF);
+	Prestamo(int n, Usuario& u, Material& m, string fI);
 	virtual ~Prestamo();
 
 	//Acceso
 	int getNumeroPrestamo();
-	string getIdUsuario();
-	int getNumeroCatalogoMaterial();
+	Usuario* getUsuario();
+	Material* getMaterial();
 	string getFechaInicio();
 	string getFechaFin();
 
 	//Setteo
 	void setNumeroPrestamo(int n);
-	void setIdUsuario(string i);
-	void setNumeroCatalogoMaterial(int nCm);
+	void setUsuario(Usuario* u);
+	void setMaterial(Material* m);
 	void setFechaInicio(string fI);
 	void setFechaFin(string fF);
 

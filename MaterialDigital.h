@@ -20,8 +20,9 @@ private:
 	string formato;
 	string tipo;
 	bool accesoEnLinea;
+	PersistenciaMatDigitales* persistencia;
 public:
-	MaterialDigital(char tm, int c, int ct, string t, string a, string pC, string s, string f, string typ, bool acEL);
+	MaterialDigital(char tm, int c, int ct, string t, string a, string pC, string s, string f, string typ);
 	virtual ~MaterialDigital();
 
 	//Acceso

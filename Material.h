@@ -14,7 +14,6 @@
 // -------------------------------------------------------------------+ 
 #pragma once
 #include "Includes.h"//.h con las bibliotecas utilizadas...
-using namespace std;
 
 class Material {
 protected:
@@ -25,31 +24,30 @@ protected:
 	string palabrasClave;
 	char tipoMaterial;
 	string estado;
-	//int tiempoPrestado;
 public:
 	Material(char tm, int c, int ct, string t, string a, string pC, string s);
 	virtual ~Material();
 	
 	//Acceso
-	int getNumClasificacion();
-	int getNumCatalogo();
-	string getTitulo();
-	string getAutor();
-	string getPalabrasClave();
-	char getTipoMaterial();
-	string getEstado();
+	virtual int getNumClasificacion();
+	virtual int getNumCatalogo();
+	virtual string getTitulo();
+	virtual string getAutor();
+	virtual string getPalabrasClave();
+	virtual char getTipoMaterial();
+	virtual string getEstado();
 
 	//Setteo
-	void setNumClasificacion(int c);
-	void setNumCatalogo(int ct);
-	void setTitulo(string t);
-	void setAutor(string a);
-	void setPalabrasClave(string pC);
-	void setTipoMaterial(char tm);
-	void setEstado(string s);
+	virtual void setNumClasificacion(int c);
+	virtual void setNumCatalogo(int ct);
+	virtual void setTitulo(string t);
+	virtual void setAutor(string a);
+	virtual void setPalabrasClave(string pC);
+	virtual void setTipoMaterial(char tm);
+	virtual void setEstado(string s);
 
 	//toString
-	virtual string toString() const;
-
+	virtual string toString() const = 0;
+	friend ostream& operator<<(ostream& os, const Material& m);
 };
 

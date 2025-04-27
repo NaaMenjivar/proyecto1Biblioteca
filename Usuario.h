@@ -13,10 +13,8 @@
 //                                                                    | 
 // -------------------------------------------------------------------+
 #pragma once
-#include <iostream>
-#include <sstream>
-#include <string>
-using namespace std;
+#include "Includes.h"
+#include "ConvDatosyFunc.h"
 
 class Usuario {
 private:
@@ -39,5 +37,9 @@ public:
 
 	//toString
 	string toString() const;
+
+	//Guardar y cargar
+	void guardar(std::ofstream&);
+	static Usuario* recuperar(std::ifstream&);
 };
 

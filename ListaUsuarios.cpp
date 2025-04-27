@@ -88,7 +88,6 @@ void ListaUsuarios::vaciarLista() {//Metodo encargado de borrar elementos y nodo
         delete actual->getDato();
         delete actual;
     }
-    cout << "usarios eliminados..." << endl;
 }
 
 //toString

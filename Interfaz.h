@@ -28,13 +28,17 @@ public:
 	static int menuIngresosModificaciones();
 	static int menuPrestamos();
 	static int menuReportes();
-
+	static bool menuOpModificacionMaterial(Biblioteca&, Material*, char);//menu que modifica e ingresa al Material modificado
+	static bool menuOpModificacionUsr(Biblioteca&, Usuario*);//menu que modifica e ingresa al Usuario modificado
 	//Metodos de creacion
 	static Material* crearMaterial();
 	static Usuario* crearUsuario();
 	//Metodos de modificacion
-	static bool modificarMaterial();
+	static bool modificarMaterial(Biblioteca&); 
 	static bool modicarUsuario(Biblioteca&); 
+	//Metodos reportes
+	static void reporteInvMaterial(Biblioteca&);
+	static void reportdeUsuarios(Biblioteca&);
 	//Mensajes
 	static void mensajeIngresoExitoso();
 	static void mensajeErrorIngreso();
