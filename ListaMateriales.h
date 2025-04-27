@@ -14,6 +14,11 @@
 // -------------------------------------------------------------------+
 #pragma once
 #include "Material.h"
+#include "Libro.h"
+#include "Revista.h"
+#include "Articulo.h"
+#include "MaterialDigital.h"
+#include "Video.h"
 
 class NodoMaterial {
 private:
@@ -61,5 +66,8 @@ public:
 	//toString
 	string toString();
 	string toStringxMaterial(char tip);
+
+	//Persistencia
+	void guardar(std::ofstream&);
 };
 

@@ -59,6 +59,8 @@ public:
 	//toString
 	string toString();
 
+	//Guardar
+	void guardar(std::ofstream&);
 };
 
 

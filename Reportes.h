@@ -13,7 +13,21 @@
 //                                                                    | 
 // -------------------------------------------------------------------+
 #pragma once
+#include "ListaUsuarios.h"
+#include "ListaMateriales.h"
+#include "GestorPrestamos.h"
 class Reportes
 {
+public:
+	Reportes();
+	virtual ~Reportes();
+	
+	//Metodos de los reportes
+	string repInventarioMaterial(ListaMateriales&);
+	string repMaterialEspecif(ListaMateriales&, char);
+	string repUsuarios(ListaUsuarios&);
+	string repPrestamos(GestorPrestamos&);
+	string repPresxMat(GestorPrestamos&, char);
+	string repPresxUsr(GestorPrestamos&, string);
 };
 

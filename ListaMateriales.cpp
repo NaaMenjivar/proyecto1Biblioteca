@@ -2,7 +2,7 @@
 
 /*--------------------NODO--------------------*/
 NodoMaterial::NodoMaterial(Material* d, NodoMaterial* s) : dato(d), sig(s) {}
-NodoMaterial::~NodoMaterial() { delete dato; }
+NodoMaterial::~NodoMaterial() {}
 
 //Acceso
 Material* NodoMaterial::getDato() { return dato; }
@@ -76,6 +76,11 @@ Material* ListaMateriales::obtenerMaterial(int numCatalago)
     return nullptr;
 }
 
+NodoMaterial* ListaMateriales::getPrimero()
+{
+    return primero;
+}
+
 //Eliminar material
 void ListaMateriales::eliminarMaterial(int numCatalogo) {
     actual = primero;
@@ -122,4 +127,67 @@ string ListaMateriales::toString() {
         }
     }
     return s.str();
+}
+
+string ListaMateriales::toStringxMaterial(char tip) 
+{
+    stringstream s;
+    actual = primero;
+    if (primero) {
+        while (actual) {
+            if ((tip == 'L' || tip == 'l') && dynamic_cast<Libro*>(actual->getDato())) { 
+                s << actual->getDato()->toString() << "\n";
+            }
+            if ((tip == 'A' || tip == 'a') && dynamic_cast<Articulo*>(actual->getDato())) {
+                s << actual->getDato()->toString() << "\n";
+            }
+            if ((tip == 'R' || tip == 'r') && dynamic_cast<Revista*>(actual->getDato())) { 
+                s << actual->getDato()->toString() << "\n";
+            }
+            if ((tip == 'V' || tip == 'v') && dynamic_cast<Video*>(actual->getDato())) { 
+                s << actual->getDato()->toString() << "\n";
+            }
+            if ((tip == 'D' || tip == 'd') && dynamic_cast<MaterialDigital*>(actual->getDato())) { 
+                s << actual->getDato()->toString() << "\n";
+            }
+            actual = actual->getSiguiente(); 
+        }
+    }
+    return s.str();
+}
+
+void ListaMateriales::guardar(std::ofstream& file)
+{
+    actual = primero;
+    while (actual) {
+        // Sepera en una linea aparte el tipo de material
+        file << actual->getDato()->getTipoMaterial() << "\n";
+
+        if ((actual->getDato()->getTipoMaterial() == 'L' || actual->getDato()->getTipoMaterial() == 'l')
+            && dynamic_cast<Libro*>(actual->getDato())) {
+            Libro* libro = dynamic_cast<Libro*>(actual->getDato());
+            libro->guardar(file);
+        }
+        else if ((actual->getDato()->getTipoMaterial() == 'A' || actual->getDato()->getTipoMaterial() == 'a')
+            && dynamic_cast<Articulo*>(actual->getDato())) {
+            Articulo* articulo = dynamic_cast<Articulo*>(actual->getDato());
+            articulo->guardar(file);
+        } 
+        else if ((actual->getDato()->getTipoMaterial() == 'R' || actual->getDato()->getTipoMaterial() == 'r')
+            && dynamic_cast<Revista*>(actual->getDato())) {
+            Revista* revista = dynamic_cast<Revista*>(actual->getDato());
+            revista->guardar(file);
+        }
+        else if ((actual->getDato()->getTipoMaterial() == 'V' || actual->getDato()->getTipoMaterial() == 'v')
+            && dynamic_cast<Video*>(actual->getDato())) {
+            Video* video = dynamic_cast<Video*>(actual->getDato());
+            video->guardar(file);
+        }
+        else if ((actual->getDato()->getTipoMaterial() == 'D' || actual->getDato()->getTipoMaterial() == 'd')
+            && dynamic_cast<MaterialDigital*>(actual->getDato())) {
+            MaterialDigital* mDigital = dynamic_cast<MaterialDigital*>(actual->getDato());
+            mDigital->guardar(file);
+        }
+        actual = actual->getSiguiente();
+    }
 }

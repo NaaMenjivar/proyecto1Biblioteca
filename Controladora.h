@@ -29,5 +29,24 @@ public:
 	int menuIngresos();
 	void ingresarMaterial();
 	void ingresarUsuario();
+	void modificarMaterial();
+	void modificarUsuario();
+
+	void controlMenuPrestamosyDevoluciones();
+	int menuPyD();
+	void ingresarPrestamo();
+	void devolucionPres();
+
+	void controlMenuReportes(); 
+	int menuReportes();
+	void repMateriales();
+	void repUsuarios();
+	void repPrestamos();
+	void repPrestamosporMat();
+	void repPrestamosporUsr();
+
+	void controlMenuGuardar();
+	void guardarArchivos();
+	void cargarArchivos();
 };
 

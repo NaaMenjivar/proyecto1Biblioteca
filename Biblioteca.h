@@ -16,20 +16,22 @@
 #include "ListaMateriales.h"
 #include "ListaUsuarios.h"
 #include "GestorPrestamos.h"
+#include "Reportes.h"
 class Biblioteca
 {
 private:
 	ListaMateriales* materiales;
 	ListaUsuarios* usuarios;
 	GestorPrestamos* prestamos;
+	Reportes* reportes;
 public:
 	Biblioteca();
 	virtual ~Biblioteca();
 
 	// Ingresos...
-	bool ingresarMateriales(Material&);
-	bool ingresarUsuarios(Usuario&);
-	bool ingresarPrestamos(Prestamo&);
+	bool ingresarMateriales(Material& m);
+	bool ingresarUsuarios(Usuario& u);
+	bool ingresarPrestamos(Prestamo& p);
 
 
 	// Busquedas...

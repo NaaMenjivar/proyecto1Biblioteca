@@ -14,32 +14,13 @@
 // -------------------------------------------------------------------+
 #pragma once
 #include "Includes.h"
-#include "ConvDatosyFunc.h"
 
-class Usuario {
-private:
-	string id;
-	string nombre;
-	bool activo;
-public:
-	Usuario(string i, string n, bool a);
-	virtual ~Usuario();
+int conversionInt(string);//Realiza la conversion de un string a un int para la carga de archivos
 
-	//Acceso
-	string getId();
-	string getNombre();
-	bool getActivo();
+char conversionChar(string); 
 
-	//Setteo
-	void setId(string i);
-	void setNombre(string n);
-	void setActivo(bool a);
+bool esAnioBisiesto(int);//Verifica si un año es bisiesto
 
-	//toString
-	string toString() const;
-
-	//Guardar y cargar
-	void guardar(std::ofstream&);
-	static Usuario* cargar(std::ifstream&);
-};
-
+int diasEnMes(int, int);//Obtener el número de días en un mes específico
+    
+string sumarDiasxPrestamo(const string& fechaF, char tipoMat);//Suma los dias segun la fecha recibida

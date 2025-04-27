@@ -14,6 +14,7 @@
 // -------------------------------------------------------------------+
 #pragma once
 #include "Includes.h"
+#include "ConvDatosyFunc.h"
 #include "Usuario.h"
 #include "Material.h"
 
@@ -25,12 +26,14 @@ private:
 	string fechaInicio;
 	string fechaFin;
 public:
-	Prestamo(int n, Usuario& u, Material& m, string fI);
+	Prestamo(Usuario& u, Material& m, int n, string fI);
 	virtual ~Prestamo();
 
 	//Acceso
 	int getNumeroPrestamo();
 	Usuario* getUsuario();
+	string getIdUsuario();
+	char getTipoMaterial();
 	Material* getMaterial();
 	string getFechaInicio();
 	string getFechaFin();
@@ -44,5 +47,8 @@ public:
 
 	//toString
 	string toString() const;
+
+	//Guardar y cargar
+	void guardar(std::ofstream&);
 };
 

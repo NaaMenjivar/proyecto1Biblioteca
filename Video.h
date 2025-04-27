@@ -15,10 +15,15 @@
 #pragma once
 #include "Material.h"
 
+class PersistenciaVideo;
+class ofstream;
+class ifstream;
+
 class Video : public Material {
 private:
 	string duracion;
 	string formato;
+	PersistenciaVideo* persistencia;
 public:
 	Video(char tm, int c, int ct, string t, string a, string pC, string s, string d, string f);
 	virtual ~Video();
@@ -33,5 +38,9 @@ public:
 
 	//toString
 	string toString() const override;
+
+	//persistencia de datos
+	void guardar(std::ofstream&);
+	static Video* cargar(std::ifstream&);
 };
 

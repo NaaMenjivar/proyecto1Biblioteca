@@ -23,3 +23,25 @@ string Usuario::toString() const {
 
     return s.str();
 }
+
+void Usuario::guardar(std::ofstream& salida)
+{
+    salida << id << "\t";
+    salida << nombre << "\t";
+    salida << activo << "\n";
+}
+
+Usuario* Usuario::cargar(std::ifstream& entrada)
+{
+    string unId, unNombre, act; 
+
+    entrada >> unId;
+    entrada >> unNombre;
+    entrada >> act;
+    int unActivo = conversionInt(act);
+
+    if (!unId.empty() && !unNombre.empty() && !act.empty()) {
+        return new Usuario(unId, unNombre, unActivo);
+    }
+    return nullptr;
+}

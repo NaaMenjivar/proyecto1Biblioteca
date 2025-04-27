@@ -131,6 +131,7 @@
     <ClCompile Include="Articulo.cpp" />
     <ClCompile Include="Biblioteca.cpp" />
     <ClCompile Include="Controladora.cpp" />
+    <ClCompile Include="ConvDatosyFunc.cpp" />
     <ClCompile Include="GestorPrestamos.cpp" />
     <ClCompile Include="Interfaz.cpp" />
     <ClCompile Include="Libro.cpp" />
@@ -150,6 +151,8 @@
     <ClInclude Include="Articulo.h" />
     <ClInclude Include="Biblioteca.h" />
     <ClInclude Include="Controladora.h" />
+    <ClInclude Include="ConvDatosyFunc.h" />
+    <ClInclude Include="Excepciones.h" />
     <ClInclude Include="GestorPrestamos.h" />
     <ClInclude Include="Includes.h" />
     <ClInclude Include="Interfaz.h" />

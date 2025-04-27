@@ -108,3 +108,12 @@ string ListaUsuarios::toString() {
     }
     return s.str();
 }
+
+void ListaUsuarios::guardar(std::ofstream& file)
+{
+    actual = primero;
+    while (actual) {
+        actual->getDato()->guardar(file);
+        actual = actual->getSiguiente(); 
+    }
+}

@@ -31,7 +31,7 @@ bool GestorPrestamos::agregarPrestamo(Prestamo& nuevoPrestamo) {
         return false;
     }
     primero = new NodoPrestamo(&nuevoPrestamo, primero);
-        return true;
+    return true;
 }
 
 // Buscar préstamo
@@ -60,12 +60,13 @@ Prestamo* GestorPrestamos::obtenerPrestamo(int numPrestamo)
 }
 
 // Eliminar préstamo
-void GestorPrestamos::eliminarPrestamo(int numeroPrestamo) {
+bool GestorPrestamos::eliminarPrestamo(int numeroPrestamo) {
     actual = primero;
     if (buscarPrestamo(numeroPrestamo)) {
         if (actual->getDato()->getNumeroPrestamo() == numeroPrestamo) {
             primero = primero->getSiguiente();
             delete actual;
+            return true;
         }
         else {
             while (actual->getSiguiente()->getDato()->getNumeroPrestamo() != numeroPrestamo) {
@@ -74,8 +75,10 @@ void GestorPrestamos::eliminarPrestamo(int numeroPrestamo) {
             NodoPrestamo* nodo = actual->getSiguiente();
             actual->setSiguiente(actual->getSiguiente()->getSiguiente());
             delete nodo;
+            return true;
         }
     }
+    return false;
 }
 
 // Vaciar lista
@@ -86,6 +89,17 @@ void GestorPrestamos::vaciarLista() {
         delete actual->getDato();
         delete actual;
     }
+}
+
+int GestorPrestamos::tamanno()
+{
+    int cant = 0;
+    actual = primero;
+    while (actual) {
+        actual = actual->getSiguiente();
+        cant++;
+    }
+    return cant;
 }
 
 // toString
@@ -105,4 +119,48 @@ string GestorPrestamos::toString() {
         }
     }
     return s.str();
+}
+
+string GestorPrestamos::toStringxMaterial(char tip)
+{
+    stringstream s;
+    actual = primero; 
+    bool encontrado = false;
+
+    while (actual) {
+        if (toupper(actual->getDato()->getTipoMaterial()) == toupper(tip)) { 
+            s << actual->getDato()->toString() << endl; 
+            encontrado = true;
+        }
+        actual = actual->getSiguiente(); 
+    }
+
+    if (!encontrado)
+        return "";
+
+    return s.str();
+}
+
+string GestorPrestamos::toStringxUsuario(string id)
+{
+    stringstream s;
+    actual = primero;
+    if (primero) {
+        while (actual) {
+            if (actual->getDato()->getIdUsuario() == id) {
+                s << actual->getDato()->toString() << "\n";
+            }
+            actual = actual->getSiguiente();
+        }
+    }
+    return s.str();
+}
+
+void GestorPrestamos::guardar(std::ofstream& file)
+{
+    actual = primero;
+    while (actual) {
+        actual->getDato()->guardar(file);
+        actual = actual->getSiguiente();
+    }
 }

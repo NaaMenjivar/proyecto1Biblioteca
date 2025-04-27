@@ -13,6 +13,7 @@
 //                                                                    | 
 // -------------------------------------------------------------------+
 #pragma once
+#include "Excepciones.h"
 #include "Biblioteca.h"
 #include "Libro.h"
 #include "Articulo.h"
@@ -30,17 +31,37 @@ public:
 	static int menuReportes();
 	static bool menuOpModificacionMaterial(Biblioteca&, Material*, char);//menu que modifica e ingresa al Material modificado
 	static bool menuOpModificacionUsr(Biblioteca&, Usuario*);//menu que modifica e ingresa al Usuario modificado
+	
+	//Manejo de excepciones con ingreso de operadores
+	static int ingresarInt(int);
+	static int ingresarInt(int, int);
+	static string ingresarString();
+	static char ingresarChar();
+
 	//Metodos de creacion
 	static Material* crearMaterial();
 	static Usuario* crearUsuario();
+	static Prestamo* crearPrestamo(Biblioteca&);
+	
+	//Metodos de elimanacion
+	static bool devolucionPrestamo(Biblioteca&);
+	
 	//Metodos de modificacion
 	static bool modificarMaterial(Biblioteca&); 
 	static bool modicarUsuario(Biblioteca&); 
+	
 	//Metodos reportes
 	static void reporteInvMaterial(Biblioteca&);
 	static void reportdeUsuarios(Biblioteca&);
+	static void reportedePrestamos(Biblioteca&);
+	static void reportedePrestamosxMat(Biblioteca&);
+	static void reportedePrestamosxUsr(Biblioteca&);
+	
 	//Mensajes
 	static void mensajeIngresoExitoso();
 	static void mensajeErrorIngreso();
+	static void msjDevolucionExitoso();
+	static void msjErrorDevolucion();
+	static void msjGuardado();
 };
 

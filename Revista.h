@@ -15,11 +15,16 @@
 #pragma once
 #include "Material.h"
 
+class PersistenciaResvistas;
+class ofstream;
+class ifstream;
+
 class Revista : public Material {
 private:
 	int numero;
 	int volumen;
 	string ubicacionFisica;
+	PersistenciaResvistas* persistencia;
 public:
 	Revista(char tm, int c, int ct, string t, string a, string pC, string s, int nm, int vl, string uF);
 	virtual ~Revista();
@@ -36,5 +41,9 @@ public:
 
 	//toString
 	string toString() const override;
+
+	//persistencia de datos
+	void guardar(std::ofstream&);
+	static Revista* cargar(std::ifstream&);
 };
 

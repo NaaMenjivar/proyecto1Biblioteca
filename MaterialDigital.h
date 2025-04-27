@@ -15,6 +15,10 @@
 #pragma once
 #include "Material.h"
 
+class PersistenciaMatDigitales;
+class ofstream;
+class ifstream;
+
 class MaterialDigital : public Material {
 private:
 	string formato;
@@ -37,5 +41,9 @@ public:
 
 	//toString
 	string toString() const override;
+
+	//persistencia de datos
+	void guardar(std::ofstream&);
+	static MaterialDigital* cargar(std::ifstream&);
 };
 

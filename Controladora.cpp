@@ -220,9 +220,13 @@ void Controladora::controlMenuGuardar()
 void Controladora::guardarArchivos()
 {
     biblioteca->guardarMateriales();
+    biblioteca->guardarUsuarios();
+    biblioteca->guardarPrestamos();
 }
 
 void Controladora::cargarArchivos()
 {
     biblioteca->cargarMateriales();
+    biblioteca->cargarUsuarios();
+    biblioteca->cargarPrestamos();
 }

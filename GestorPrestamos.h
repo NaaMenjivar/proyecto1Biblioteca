@@ -56,7 +56,14 @@ public:
 	//Vaciar lista
     void vaciarLista();
 
+	//tamanno lista
+	int tamanno();
 	//toString
     string toString();
+	string toStringxMaterial(char);
+	string toStringxUsuario(string);
+
+	//Guardar
+	void guardar(std::ofstream&);
 };
 

@@ -6,6 +6,11 @@ Video::Video(char tm, int c, int ct, string t, string a, string pC, string s, st
 	this->persistencia = new PersistenciaVideo();
 } 
 
+Video::~Video() {
+	if (persistencia)
+		delete persistencia;
+}
+
 //Acceso
 string Video::getDuracion() { return duracion; }
 string Video::getFormato() { return formato; }
@@ -29,4 +34,15 @@ string Video::toString() const {
 	s << "Formato: " << formato << "\n";
 
     return s.str();
+}
+
+void Video::guardar(std::ofstream& file)
+{
+	persistencia->guardarMaterial(this, file);
+}
+
+Video* Video::cargar(std::ifstream& file)
+{
+	PersistenciaVideo per;
+	return per.cargarVideo(file);
 }

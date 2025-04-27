@@ -45,6 +45,9 @@ public:
 	virtual void setPalabrasClave(string pC);
 	virtual void setTipoMaterial(char tm);
 	virtual void setEstado(string s);
+	//Setteo para la modificacion del material
+	//Modifica la mayoria de atributos del material, a excepcion del tipo de material.
+	virtual void setGeneral(int c, int ct, string t, string a, string pC, string s);
 
 	//toString
 	virtual string toString() const = 0;
