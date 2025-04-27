@@ -1,0 +1,4 @@
+L
+1	12	tt	ggg	bbb	malo	no se
+D
+44	4	rrr	fff	vvv	regular	CD	Fisico
