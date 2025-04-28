@@ -286,9 +286,6 @@ bool Interfaz::menuOpModificacionMaterial(Biblioteca& b, Material* m, char tip)
 	}
 	if ((tip == 'D' || tip == 'd') && dynamic_cast<MaterialDigital*>(m)) {
 		MaterialDigital* mDigital = dynamic_cast<MaterialDigital*>(m); 
-		switch (op)
-		{
-		case 1:
 			cout << "=>Ingrese el Numero de Clasificacion: ";
 			numClasi = Interfaz::ingresarInt(1); 
 
