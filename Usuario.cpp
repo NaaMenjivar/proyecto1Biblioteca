@@ -19,7 +19,7 @@ string Usuario::toString() const {
     stringstream s;
     s << "ID: " << id << endl;
     s << "Nombre: " << nombre << endl;
-    s << "Activo: " << activo << endl;
+    s << "Estado: " << ((activo == 1) ? "Activo" : "No Activo") << endl;
 
     return s.str();
 }

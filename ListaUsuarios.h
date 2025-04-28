@@ -12,7 +12,8 @@
 // versión 1.0.0 2025-04-01                                           | 
 //                                                                    | 
 // -------------------------------------------------------------------+
-#pragma once
+#ifndef LISTAUSUARIOS_H  
+#define LISTAUSUARIOS_H
 #include "Usuario.h"
 
 class NodoUsuario {
@@ -63,4 +64,4 @@ public:
 	void guardar(std::ofstream&);
 };
 
-
+#endif

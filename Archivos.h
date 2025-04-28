@@ -12,7 +12,8 @@
 // versión 1.0.0 2025-04-01                                           | 
 //                                                                    | 
 // -------------------------------------------------------------------+
-#pragma once
+#ifndef ARCHIVOS_H 
+#define ARCHIVOS_H 
 #include "Material.h"
 
 class Libro;
@@ -58,3 +59,5 @@ public:
 	virtual void guardarMaterial(Material*, std::ofstream&);
 	Video* cargarVideo(std::ifstream&);//Cada material maneja su cargar
 };
+
+#endif 

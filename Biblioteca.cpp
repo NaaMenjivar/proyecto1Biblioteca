@@ -35,7 +35,7 @@ bool Biblioteca::ingresarPrestamos(Prestamo& p)
     return prestamos->agregarPrestamo(p);
 }
 
-Material* Biblioteca::getMaterial(char tipMat)
+Material* Biblioteca::getMaterial(int tipMat)
 {
     return materiales->obtenerMaterial(tipMat);
 }

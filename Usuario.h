@@ -12,7 +12,8 @@
 // versión 1.0.0 2025-04-01                                           | 
 //                                                                    | 
 // -------------------------------------------------------------------+
-#pragma once
+#ifndef USUARIO_H  
+#define USUARIO_H 
 #include "Includes.h"
 #include "ConvDatosyFunc.h"
 
@@ -43,3 +44,4 @@ public:
 	static Usuario* cargar(std::ifstream&);
 };
 
+#endif

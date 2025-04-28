@@ -12,7 +12,8 @@
 // versión 1.0.0 2025-04-01                                           | 
 //                                                                    | 
 // -------------------------------------------------------------------+
-#pragma once
+#ifndef BIBLIOTECA_H  
+#define BIBLIOTECA_H
 #include "ListaMateriales.h"
 #include "ListaUsuarios.h"
 #include "GestorPrestamos.h"
@@ -35,7 +36,7 @@ public:
 
 
 	// Busquedas...
-	Material* getMaterial(char tipMat);
+	Material* getMaterial(int tipMat);
 	Usuario* getUsuarios(string idUs);
 	Prestamo* getPrestamo(int numPe);
 
@@ -61,3 +62,4 @@ public:
 	void cargarPrestamos();
 };
 
+#endif

@@ -12,7 +12,8 @@
 // versión 1.0.0 2025-04-01                                           | 
 //                                                                    | 
 // -------------------------------------------------------------------+ 
-#pragma once
+#ifndef REVISTA_H  
+#define REVISTA_H 
 #include "Material.h"
 
 class PersistenciaResvistas;
@@ -47,3 +48,4 @@ public:
 	static Revista* cargar(std::ifstream&);
 };
 
+#endif

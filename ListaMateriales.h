@@ -12,7 +12,8 @@
 // versión 1.0.0 2025-04-01                                           | 
 //                                                                    | 
 // -------------------------------------------------------------------+
-#pragma once
+#ifndef LISTAMATERIALES_H  
+#define LISTAMATERIALES_H 
 #include "Material.h"
 #include "Libro.h"
 #include "Revista.h"
@@ -71,3 +72,4 @@ public:
 	void guardar(std::ofstream&);
 };
 
+#endif 

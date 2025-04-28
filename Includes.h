@@ -12,7 +12,8 @@
 // versión 1.0.0 2025-04-01                                           | 
 //                                                                    | 
 // -------------------------------------------------------------------+
-#pragma once
+#ifndef INCLUDES_H  
+#define INCLUDES_H
 #include <iostream>
 #include <iomanip>
 #include <sstream>
@@ -20,3 +21,4 @@
 #include <fstream>
 #include <exception>
 using namespace std;
+#endif

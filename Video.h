@@ -12,7 +12,8 @@
 // versión 1.0.0 2025-04-01                                           | 
 //                                                                    | 
 // -------------------------------------------------------------------+
-#pragma once
+#ifndef VIDEO_H  
+#define VIDEO_H 
 #include "Material.h"
 
 class PersistenciaVideo;
@@ -44,3 +45,4 @@ public:
 	static Video* cargar(std::ifstream&);
 };
 
+#endif

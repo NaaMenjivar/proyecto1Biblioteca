@@ -12,7 +12,8 @@
 // versión 1.0.0 2025-04-01                                           | 
 //                                                                    | 
 // -------------------------------------------------------------------+
-#pragma once
+#ifndef CONVDATOSYFUNC_H  
+#define CONVDATOSYFUNC_H
 #include "Includes.h"
 
 int conversionInt(string);//Realiza la conversion de un string a un int para la carga de archivos
@@ -24,3 +25,5 @@ bool esAnioBisiesto(int);//Verifica si un año es bisiesto
 int diasEnMes(int, int);//Obtener el número de días en un mes específico
     
 string sumarDiasxPrestamo(const string& fechaF, char tipoMat);//Suma los dias segun la fecha recibida
+
+#endif

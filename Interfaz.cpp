@@ -63,287 +63,6 @@ int Interfaz::menuReportes()
 	return op;
 }
 
-bool Interfaz::menuOpModificacionMaterial(Biblioteca& b, Material* m, char tip)
-{
-	Material* nuevoMaterial = nullptr;
-	int numClasi, numCata, numRev, volumen, accLinea, op;
-	string titulo, autor, palbClav, estado, ubiFisica, duracion, formato, tipo, publicacion, fechaPubli; 
-
-	cout << "==========OPCIONES DE MODIFICACION==========" << endl;
-	cout << "1.Todos los atributos." << endl;
-	cout << "2.Su atributo propio (Clase derivada)." << endl;
-	cout << "=>Ingresa la opcion: ";
-	op = Interfaz::ingresarInt(1, 2);
-
-	if ((tip == 'L' || tip == 'l') && dynamic_cast<Libro*>(m)) {
-		Libro* libro = dynamic_cast<Libro*>(m);
-		switch (op)
-		{
-		case 1:
-			cout << "=>Ingrese el Numero de Clasificacion: ";
-			numClasi = Interfaz::ingresarInt(1);
-
-			cout << "=>Ingrese el Numero de Catalago: ";
-			numCata = Interfaz::ingresarInt(1);
-			cin.ignore(); 
-
-			cout << "=>Ingrese el Titulo: ";
-			cin.ignore(1, '\n');
-			getline(cin, titulo, '\n'); 
-
-			cout << "=>Ingrese el autor: ";
-			getline(cin, autor, '\n');
-
-			cout << "=>Ingrese la Palabra Claves: ";
-			getline(cin, palbClav, '\n');
-
-			cout << "=>Ingrese el estado del Material(Bueno|Regular|Malo): ";
-			getline(cin, estado, '\n');
-
-			cout << "=>Ingrese la Ubicacion Fisica: ";
-			getline(cin, ubiFisica, '\n');
-
-			libro->setGeneral(numClasi, numCata, titulo, autor, palbClav, estado);
-			libro->setUbicacionFisica(ubiFisica);
-			nuevoMaterial = libro;
-			return b.ingresarMateriales(*nuevoMaterial);
-		case 2:
-			cin.ignore();
-			cout << "=>Ingrese la Ubicacion Fisica: ";
-			getline(cin, ubiFisica, '\n');
-
-			libro->setUbicacionFisica(ubiFisica);
-			nuevoMaterial = libro;
-			return b.ingresarMateriales(*nuevoMaterial);
-		default:
-			return false;
-		}
-	}
-	if ((tip == 'A' || tip == 'a') && dynamic_cast<Articulo*>(m)) {
-		Articulo* articulo = dynamic_cast<Articulo*>(m);
-		switch (op) 
-		{
-		case 1:
-			cout << "=>Ingrese el Numero de Clasificacion: ";
-			numClasi = Interfaz::ingresarInt(1);
-
-			cout << "=>Ingrese el Numero de Catalago: ";
-			numCata = Interfaz::ingresarInt(1);
-			cin.ignore();
-
-			cout << "=>Ingrese el Titulo: ";
-			cin.ignore(1, '\n');
-			getline(cin, titulo, '\n');
-
-			cout << "=>Ingrese el autor: ";
-			getline(cin, autor, '\n');
-
-			cout << "=>Ingrese la Palabra Claves: ";
-			getline(cin, palbClav, '\n');
-
-			cout << "=>Ingrese el estado del Material(Bueno|Regular|Malo): ";
-			getline(cin, estado, '\n');
-
-			cout << "=>Ingrese la Publicacion del Articulo: ";
-			getline(cin, publicacion, '\n');
-
-			cout << "=>Ingrese la Fecha Publicacion del Articulo: ";
-			getline(cin, fechaPubli, '\n');
-
-			articulo->setGeneral(numClasi, numCata, titulo, autor, palbClav, estado);
-			articulo->setRevistaPublicacion(publicacion);
-			articulo->setFechaPublicacion(fechaPubli);
-			nuevoMaterial = articulo;
-			return b.ingresarMateriales(*nuevoMaterial);
-		case 2:
-			cin.ignore(); 
-			cout << "=>Ingrese la Publicacion del Articulo: ";
-			getline(cin, publicacion, '\n');
-
-			cout << "=>Ingrese la Fecha Publicacion del Articulo: ";
-			getline(cin, fechaPubli, '\n');
-
-			articulo->setRevistaPublicacion(publicacion);
-			articulo->setFechaPublicacion(fechaPubli);
-			nuevoMaterial = articulo;
-			return b.ingresarMateriales(*nuevoMaterial);
-		default:
-			return false;
-		}
-	}
-	if ((tip == 'R' || tip == 'r') && dynamic_cast<Revista*>(m)) {
-		Revista* revista = dynamic_cast<Revista*>(m); 
-		switch (op)
-		{
-		case 1:
-			cout << "=>Ingrese el Numero de Clasificacion: ";
-			numClasi = Interfaz::ingresarInt(1);
-
-			cout << "=>Ingrese el Numero de Catalago: ";
-			numCata = Interfaz::ingresarInt(1);
-			cin.ignore();
-
-			cout << "=>Ingrese el Titulo: ";
-			cin.ignore(1, '\n');
-			getline(cin, titulo, '\n');
-
-			cout << "=>Ingrese el autor: ";
-			getline(cin, autor, '\n');
-
-			cout << "=>Ingrese la Palabra Claves: ";
-			getline(cin, palbClav, '\n');
-
-			cout << "=>Ingrese el estado del Material(Bueno|Regular|Malo): ";
-			getline(cin, estado, '\n');
-
-			cout << "=>Ingrese el Numero de Revista: ";
-			numRev = Interfaz::ingresarInt(1);
-
-			cout << "=>Ingrese el Volumen: ";
-			volumen = Interfaz::ingresarInt(1);
-			cin.ignore();
-
-			cout << "=>Ingrese la Ubicacion Fisica: ";
-			getline(cin, ubiFisica, '\n');
-
-			revista->setGeneral(numClasi, numCata, titulo, autor, palbClav, estado);
-			revista->setNumero(numRev);
-			revista->setVolumen(volumen);
-			revista->setUbicacionFisica(ubiFisica);
-			nuevoMaterial = revista; 
-			return b.ingresarMateriales(*nuevoMaterial);
-		case 2:
-			cout << "=>Ingrese el Numero de Revista: ";
-			numRev = Interfaz::ingresarInt(1); 
-
-			cout << "=>Ingrese el Volumen: ";
-			volumen = Interfaz::ingresarInt(1);
-			cin.ignore();
-
-			cout << "=>Ingrese la Ubicacion Fisica: ";
-			getline(cin, ubiFisica, '\n'); 
-
-			revista->setNumero(numRev);
-			revista->setVolumen(volumen);
-			revista->setUbicacionFisica(ubiFisica);
-			nuevoMaterial = revista;
-			return b.ingresarMateriales(*nuevoMaterial);
-		default:
-			return false;
-		}
-	}
-	if ((tip == 'V' || tip == 'v') && dynamic_cast<Video*>(m)) {
-		Video* video = dynamic_cast<Video*>(m);
-		switch (op)
-		{
-		case 1:
-			cout << "=>Ingrese el Numero de Clasificacion: ";
-			numClasi = Interfaz::ingresarInt(1);
-
-			cout << "=>Ingrese el Numero de Catalago: ";
-			numCata = Interfaz::ingresarInt(1);
-			cin.ignore();
-
-			cout << "=>Ingrese el Titulo: ";
-			cin.ignore(1, '\n');
-			getline(cin, titulo, '\n');
-
-			cout << "=>Ingrese el autor: ";
-			getline(cin, autor, '\n');
-
-			cout << "=>Ingrese la Palabra Claves: ";
-			getline(cin, palbClav, '\n');
-
-			cout << "=>Ingrese el estado del Material(Bueno|Regular|Malo): ";
-			getline(cin, estado, '\n');
-
-			cout << "=>Ingrese la Duracion del video: ";
-			getline(cin, duracion, '\n');
-
-			cout << "=>Ingrese la Formato del video(MP4, MPG, MOV): ";
-			getline(cin, formato, '\n');
-
-			video->setGeneral(numClasi, numCata, titulo, autor, palbClav, estado);
-			video->setDuracion(duracion);
-			video->setFormato(formato);
-			nuevoMaterial = video; 
-			return b.ingresarMateriales(*nuevoMaterial);
-		case 2:
-			cin.ignore();
-			cout << "=>Ingrese la Duracion del video: ";
-			getline(cin, duracion, '\n');
-
-			cout << "=>Ingrese la Formato del video(MP4, MPG, MOV): ";
-			getline(cin, formato, '\n');
-
-			video->setDuracion(duracion); 
-			video->setFormato(formato); 
-			nuevoMaterial = video;
-			return b.ingresarMateriales(*nuevoMaterial);
-		default:
-			return false;
-		}
-	}
-	if ((tip == 'D' || tip == 'd') && dynamic_cast<MaterialDigital*>(m)) {
-		MaterialDigital* mDigital = dynamic_cast<MaterialDigital*>(m); 
-			cout << "=>Ingrese el Numero de Clasificacion: ";
-			numClasi = Interfaz::ingresarInt(1); 
-
-			cout << "=>Ingrese el Numero de Catalago: ";
-			numCata = Interfaz::ingresarInt(1); 
-			cin.ignore(); 
-
-			cout << "=>Ingrese el Titulo: ";
-			cin.ignore(1, '\n');
-			getline(cin, titulo, '\n');
-
-			cout << "=>Ingrese el autor: ";
-			getline(cin, autor, '\n');
-
-			cout << "=>Ingrese la Palabra Claves: ";
-			getline(cin, palbClav, '\n');
-
-			cout << "=>Ingrese el estado del Material(Bueno|Regular|Malo): ";
-			getline(cin, estado, '\n');
-
-			cout << "=>Ingrese la Formato (CD, DVD, BluRay): "; 
-			getline(cin, formato, '\n');
-
-			cout << "=>Ingrese el tipo(Fisico|Linea): ";
-			getline(cin, tipo, '\n');
-
-			cout << "=>Indique su acceso en Linea(1=True/Activo, 0=Flase/No Activo): "; 
-			accLinea = Interfaz::ingresarInt(1);
-
-			mDigital->setGeneral(numClasi, numCata, titulo, autor, palbClav, estado);
-			mDigital->setFormato(formato);
-			mDigital->setTipo(tipo);
-			mDigital->setAccesoEnLinea(accLinea);
-			nuevoMaterial = mDigital;  
-			return b.ingresarMateriales(*nuevoMaterial);
-		case 2:
-			cin.ignore(); 
-			cout << "=>Ingrese la Formato (CD, DVD, BluRay): ";
-			getline(cin, formato, '\n');
-
-			cout << "=>Ingrese el tipo(Fisico|Linea): ";
-			getline(cin, tipo, '\n');
-
-			cout << "=>Indique su acceso en Linea(1=True/Activo, 0=Flase/No Activo): ";
-			accLinea = Interfaz::ingresarInt(0, 1);
-
-			mDigital->setFormato(formato);
-			mDigital->setTipo(tipo);
-			mDigital->setAccesoEnLinea(accLinea);
-			nuevoMaterial = mDigital; 
-			return b.ingresarMateriales(*nuevoMaterial);
-		default:
-			return false;
-		}
-	}
-	return false;
-}
-
 bool Interfaz::menuOpModificacionUsr(Biblioteca& b, Usuario* u)
 {
 	int op, act;
@@ -527,7 +246,7 @@ Material* Interfaz::crearMaterial()
 	cout << "=>Ingrese el autor: ";
 	getline(cin, autor, '\n');
 
-	cout << "=>Ingrese la Palabra Claves: ";
+	cout << "=>Ingrese la Palabra Clave: ";
 	getline(cin, palbClav, '\n');
 
 	cout << "=>Ingrese el estado del Material(Bueno|Regular|Malo): ";
@@ -599,7 +318,7 @@ Usuario* Interfaz::crearUsuario()
 	int actv;
 	cout << "==========CREACION DE USUARIO=============" << endl;
 	cout << "=>Ingrese si es Activo(1=True/Activo, 0=Flase/No Activo): ";
-	actv = Interfaz::ingresarInt(1);;
+	actv = Interfaz::ingresarInt(0, 1);
 	cin.ignore();
 
 	cout << "=>Ingrese el Id: "; getline(cin, id, '\n');
@@ -636,11 +355,15 @@ Prestamo* Interfaz::crearPrestamo(Biblioteca& b)
 	cout << reporteMateriales;  
 	cout << "=>Indique el numero de catalago del material: ";
 	numMatCat = Interfaz::ingresarInt(1);
+
 	mat = b.getMaterial(numMatCat);
-	if (tipMaterial == 'd') {
+	if (mat && tipMaterial == 'd' || tipMaterial == 'D') {
 		MaterialDigital* matD = dynamic_cast<MaterialDigital*>(mat);
-		matD->setAccesoEnLinea(0); 
+		if (matD) {
+			matD->setAccesoEnLinea(0);
+		}
 	}
+
 	cin.ignore();
 	cout << reporteUsuarios;
 	cout << "=>Indique el ID del Usuario que desea: "; getline(cin, id, '\n'); 
@@ -678,40 +401,122 @@ bool Interfaz::devolucionPrestamo(Biblioteca& b)
 	cout << "Ingrese el Numero de prestamo que desea para la devolucion: "; 
 	num = Interfaz::ingresarInt(1);
 
+	Prestamo* prestamo = b.getPrestamo(num); 
+	if (prestamo) {
+		Material* material = prestamo->getMaterial();
+		if (material && (material->getTipoMaterial() == 'D' || material->getTipoMaterial() == 'd')) { 
+			MaterialDigital* matDigital = dynamic_cast<MaterialDigital*>(material); 
+			if (matDigital) { 
+				matDigital->setAccesoEnLinea(1);
+			}
+		}
+	}
+
 	return b.devolucionMaterial(num);
 }
 
 bool Interfaz::modificarMaterial(Biblioteca& b)
 {
 	system("cls");
+	int numClasi, numCata, numRev, volumen;
+	string titulo, autor, palbClav, estado, ubiFisica, duracion, formato, tipo, publicacion, fechaPubli;
+	
+	string reporte = b.reporteInvtMariales();
+	if (reporte.empty()) { 
+		cout << "Aun no hay material ingresados." << endl; 
+		cout << "Presione enter para volver." << endl; 
+		system("pause"); 
+		return false;
+	} 
+	cout << reporte;
 
-	int num;
-	char tipMaterial;
-	Material* nuevMaterial = nullptr; 
-	cout << "==========MODIFICACION DE MATERIAL==========" << endl;
-	cout << "Indique el tipo de material a modificar" << endl;;
-	cout << "('L'=Libro|'R'=Revistas|'A'=Articulo|'V'=Video|'D'=Material Digital): ";
-	tipMaterial = Interfaz::ingresarChar();
+	cout << "Digite el numero de catalogo del material a modificar: ";
+	cin >> numCata; 
 
-	string reporte = b.reporteMatEspecifico(tipMaterial);
-	if (reporte.empty()) {
-		cout << "Aun no hay materiales ingresados." << endl;
+	Material* m = b.getMaterial(numCata);
+	if (m == nullptr) { 
+		cout << "Material no existente." << endl;
 		cout << "Presione enter para volver." << endl;
 		system("pause");
 		return false;
 	}
 
-	cout << reporte;
-	cout << "Indique el numero de catalago del material a modificar: "; 
-	num = Interfaz::ingresarInt(1);
-	nuevMaterial = b.getMaterial(num); 
-	if (!nuevMaterial) {
-		mensajeErrorIngreso();
-		return false;
-	}
-	b.eliminacionMaterial(num);
+	cout << "\nMaterial encontrado. Ingrese los nuevos datos:\n";
+	cout << "=>Ingrese el nuevo Numero de Clasificacion: ";
+	numClasi = Interfaz::ingresarInt(1);
+	
+	cout << "=>Ingrese el nuevo Numero de Catalago: ";
+	numCata = Interfaz::ingresarInt(1);
+	cin.ignore();
 
-	return menuOpModificacionMaterial(b, nuevMaterial, tipMaterial);
+	cout << "=>Ingrese el nuevo Titulo: ";
+	getline(cin, titulo);
+
+	cout << "=>Ingrese el nuevo autor: ";
+	getline(cin, autor);
+
+	cout << "=>Ingrese la nueva Palabra Clave: ";
+	getline(cin, palbClav);
+
+	cout << "=>Ingrese el nuevo estado del Material(Bueno|Regular|Malo): ";
+	getline(cin, estado);
+
+	m->setGeneral(numClasi, numCata, titulo, autor, palbClav, estado);//Settea los atributos de obj Material
+
+	if (Libro* l = dynamic_cast<Libro*>(m)) {
+		cout << "=>Ingrese la nueva Ubicacion Fisica: ";
+		getline(cin, ubiFisica);
+
+		l->setUbicacionFisica(ubiFisica);
+	}
+	else if (Revista* r = dynamic_cast<Revista*>(m)) {
+		cin.ignore(); 
+		cout << "=>Ingrese el neuvo Numero de Revista: "; 
+		numRev = Interfaz::ingresarInt(1); 
+		 
+		cout << "=>Ingrese el nuevo Volumen: "; 
+		volumen = Interfaz::ingresarInt(1); 
+		cin.ignore(); 
+
+		cout << "=>Ingrese la nueva Ubicacion Fisica: "; 
+		getline(cin, ubiFisica); 
+
+		r->setNumero(numRev);
+		r->setVolumen(volumen);
+		r->setUbicacionFisica(ubiFisica);
+	}
+	else if (Articulo* a = dynamic_cast<Articulo*>(m)) {
+		cout << "=>Ingrese la nueva Publicacion del Articulo: ";
+		getline(cin, publicacion);
+
+		cout << "=>Ingrese la nueva Fecha Publicacion del Articulo: ";
+		getline(cin, fechaPubli);
+
+		a->setRevistaPublicacion(publicacion);
+		a->setFechaPublicacion(fechaPubli);
+	}
+	else if (Video* v = dynamic_cast<Video*>(m)) {
+		cout << "=>Ingrese la nueva Duracion del video: ";
+		getline(cin, duracion);
+
+		cout << "=>Ingrese el nuevo Formato del video(MP4, MPG, MOV): ";
+		getline(cin, formato);
+
+		v->setDuracion(duracion);
+		v->setFormato(formato);
+	}
+	else if (MaterialDigital* d = dynamic_cast<MaterialDigital*>(m)) {
+		cout << "=>Ingrese el nuevo Formato (CD, DVD, BluRay): ";
+		getline(cin, formato, '\n');
+
+		cout << "=>Ingrese el nuevo tipo(Fisico|Linea): ";
+		getline(cin, tipo, '\n');
+
+		d->setFormato(formato);
+		d->setTipo(tipo);
+	}
+
+	return true;
 }
 
 bool Interfaz::modicarUsuario(Biblioteca& b)

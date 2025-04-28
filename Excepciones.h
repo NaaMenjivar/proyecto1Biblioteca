@@ -12,7 +12,8 @@
 // versión 1.0.0 2025-04-01                                           | 
 //                                                                    | 
 // -------------------------------------------------------------------+
-#pragma once
+#ifndef EXCEPCIONES_H  
+#define EXCEPCIONES_H
 #include "Includes.h"
 using namespace std;
 
@@ -114,3 +115,4 @@ public:
     }
 };
 
+#endif

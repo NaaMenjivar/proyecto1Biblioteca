@@ -12,7 +12,8 @@
 // versión 1.0.0 2025-04-01                                           | 
 //                                                                    | 
 // -------------------------------------------------------------------+
-#pragma once
+#ifndef REPORTES_H  
+#define REPORTES_H 
 #include "ListaUsuarios.h"
 #include "ListaMateriales.h"
 #include "GestorPrestamos.h"
@@ -31,3 +32,4 @@ public:
 	string repPresxUsr(GestorPrestamos&, string);
 };
 
+#endif

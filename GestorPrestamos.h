@@ -12,7 +12,8 @@
 // versión 1.0.0 2025-04-01                                           | 
 //                                                                    | 
 // -------------------------------------------------------------------+
-#pragma once
+#ifndef GESTORPRESTAMOS_H  
+#define GESTORPRESTAMOS_H 
 #include "Prestamo.h"
 
 class NodoPrestamo {
@@ -67,3 +68,4 @@ public:
 	void guardar(std::ofstream&);
 };
 
+#endif

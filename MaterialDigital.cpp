@@ -35,7 +35,7 @@ string MaterialDigital::toString() const {
 	s << "Estado del material: " << estado << "\n";
     s << "Formato: " << formato << "\n";
     s << "Tipo: " << tipo << "\n";
-    s << "Acceso en linea: " << accesoEnLinea << "\n";
+    s << "Acceso en linea: " << ((accesoEnLinea == 1) ? "Activo" : "No Activo") << "\n";
 
     return s.str();
 }

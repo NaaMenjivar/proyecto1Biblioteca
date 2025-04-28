@@ -12,7 +12,8 @@
 // versión 1.0.0 2025-04-01                                           | 
 //                                                                    | 
 // -------------------------------------------------------------------+ 
-#pragma once
+#ifndef LIBRO_H  
+#define LIBRO_H 
 #include "Material.h"
 
 
@@ -42,3 +43,4 @@ public:
 	static Libro* cargar(std::ifstream&);
 };
 
+#endif

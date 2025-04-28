@@ -1,3 +1,5 @@
+d
+88	9	tt	jjj	ss	regular	CD	Linea
 L
 1	12	tt	ggg	bbb	malo	no se
 D

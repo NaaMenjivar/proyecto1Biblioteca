@@ -12,7 +12,8 @@
 // versión 1.0.0 2025-04-01                                           | 
 //                                                                    | 
 // -------------------------------------------------------------------+
-#pragma once
+#ifndef MATDIGITAL_H  
+#define MATDIGITAL_H 
 #include "Material.h"
 
 class PersistenciaMatDigitales;
@@ -47,3 +48,4 @@ public:
 	static MaterialDigital* cargar(std::ifstream&);
 };
 
+#endif

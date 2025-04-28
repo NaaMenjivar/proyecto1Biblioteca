@@ -12,6 +12,8 @@
 // versión 1.0.0 2025-04-01                                           | 
 //                                                                    | 
 // -------------------------------------------------------------------+
+#ifndef CONTROLADORA_H  
+#define CONTROLADORA_H
 #include "Interfaz.h"
 class Controladora
 {
@@ -49,3 +51,4 @@ public:
 	void cargarArchivos();
 };
 
+#endif

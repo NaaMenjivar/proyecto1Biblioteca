@@ -12,7 +12,8 @@
 // versión 1.0.0 2025-04-01                                           | 
 //                                                                    | 
 // -------------------------------------------------------------------+ 
-#pragma once
+#ifndef ARTICULO_H  
+#define ARTICULO_H 
 #include "Material.h"
 
 class PersistenciaArticulos;
@@ -44,3 +45,4 @@ public:
 	static Articulo* cargar(std::ifstream&);
 };
 
+#endif 

@@ -12,7 +12,8 @@
 // versión 1.0.0 2025-04-01                                           | 
 //                                                                    | 
 // -------------------------------------------------------------------+ 
-#pragma once
+#ifndef MATERIAL_H 
+#define MATERIAL_H 
 #include "Includes.h"//.h con las bibliotecas utilizadas...
 
 class Material {
@@ -54,3 +55,4 @@ public:
 	friend ostream& operator<<(ostream& os, const Material& m);
 };
 
+#endif 

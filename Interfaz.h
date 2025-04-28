@@ -12,7 +12,8 @@
 // versión 1.0.0 2025-04-01                                           | 
 //                                                                    | 
 // -------------------------------------------------------------------+
-#pragma once
+#ifndef INTERFAZ_H  
+#define INTERFAZ_H
 #include "Excepciones.h"
 #include "Biblioteca.h"
 #include "Libro.h"
@@ -29,7 +30,6 @@ public:
 	static int menuIngresosModificaciones();
 	static int menuPrestamos();
 	static int menuReportes();
-	static bool menuOpModificacionMaterial(Biblioteca&, Material*, char);//menu que modifica e ingresa al Material modificado
 	static bool menuOpModificacionUsr(Biblioteca&, Usuario*);//menu que modifica e ingresa al Usuario modificado
 	
 	//Manejo de excepciones con ingreso de operadores
@@ -65,3 +65,4 @@ public:
 	static void msjGuardado();
 };
 
+#endif
