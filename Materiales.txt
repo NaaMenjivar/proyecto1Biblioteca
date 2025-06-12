@@ -1,6 +1,10 @@
-d
-88	9	tt	jjj	ss	regular	CD	Linea
+v
+150	24	xxx	ana	hola	Bueno	55	MPG
+a
+5678	6	dfsdf	dsfds	dsfdsf	Bueno	otra	12/05/2006
+r
+890	4	ewr	gfgfd	gfgfdg	Malo	56	5	alla
 L
 1	12	tt	ggg	bbb	malo	no se
 D
-44	4	rrr	fff	vvv	regular	CD	Fisico
+88	9	tt	jjj	ss	regular	CD	Linea
